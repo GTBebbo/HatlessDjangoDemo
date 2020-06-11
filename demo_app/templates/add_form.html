@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		{% if request.user.is_authenticated %}
+			<h2>Welcome {{ request.user.first_name }}!</h2>
+
+		<form action="/add-blog-post/" method="POST">
+			{% csrf_token %}
+			<input name="title" placeholder="Title" /><br />
+			<textarea name="content">Content</textarea><br />
+			<button>Add Blog Post</button>
+		</form>
+		{% else %}
+			<h1>User not logged in!</h1>
+		{% endif %}
+
+	</body>
+</html>

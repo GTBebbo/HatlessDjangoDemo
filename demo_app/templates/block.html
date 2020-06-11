@@ -1,0 +1,8 @@
+{% extends 'example.html' %}
+{% load static %}
+
+<img src="{% static 'img/example.svg' %}">
+
+{% block paragraphs %}
+    <p>Spam</p>
+ {% endblock paragraphs %}
