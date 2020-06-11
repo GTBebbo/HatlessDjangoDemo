@@ -1,6 +1,9 @@
 from django.http import JsonResponse
+
+from demo import settings
 from demo_app.models import BlogPost
 from django.shortcuts import render
+
 
 def add_blog_post(request):
 	# Check user is logged in
@@ -20,6 +23,7 @@ def add_blog_post(request):
 		'title': new_blog_post.title,
 		'content': new_blog_post.content,
 		}, status=201)
+
 
 def remove_blog_post(request, post_id):
 	# Find objects with the given id
@@ -50,14 +54,19 @@ def add_form(request):
 	return render(request, 'add_form.html')
 
 
-
-
 # Create your views here.
 
 
 def index(request):
-   return render(request, 'example.html')
+	context = {
+		'some_text': "This Is Some Random Text",
+	}
+	return render(request, 'example.html', context=context)
+
+
+def delete(request):
+	return render(request, 'delete_form.html')
 
 
 def block(request):
-   return render(request, 'block.html')
+	return render(request, 'block.html')

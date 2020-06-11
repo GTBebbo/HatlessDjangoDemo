@@ -1,6 +1,12 @@
-
+{% load demo_tags %}
 
 <h1>Hello Everyone</h1>
 
+<p>{{ some_text|lower }}</p>
+<p>The time is {% current_time "%I:%M %p" %}</p>
+
 {% block paragraphs %}
 {% endblock paragraphs %}
+
+
+

@@ -16,15 +16,17 @@ Including another URLconf
 from django.urls import path, include
 
 from demo_app import views
+from demo_app.Controllers.BlogPosts import BlogPosts
 
 urlpatterns = [
     path('', views.index),
     path('example-path/', views.index),
     path('example-block/', views.block),
 
-    path('add-blog-post/', views.add_blog_post),
-    path('remove-blog-post/<int:post_id>/', views.remove_blog_post),
+    path('add-blog-post/', BlogPosts.as_view()),
+    path('delete-blog-post/<int:post_id>/', BlogPosts.as_view()),
     path('list-blog-posts/', views.list_blog_posts),
 
     path('add/', views.add_form),
+    path('remove/', views.delete),
 ]
